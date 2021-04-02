@@ -11,18 +11,36 @@
 </head>
 
 <body class="bg-gray-background container mx-auto text-main">
-    <main class="container px-10">
+    <header class="container px-10 mt-10 mb-16">
         <!-- Navigation -->
-        <div class="flex justify-end my-10">
-            <button class=" bg-main text-yellow px-6 py-2 rounded-lg hover:bg-indigo-900 transition ease-out duration-200"><a href="{{ route('login') }}">Sign in</a></button>
+        <div class="flex flex-col md:flex-row h-auto items-center justify-between">
+            <!-- Here maybe we can hide the logo if the route is '/' -->
+            <div class="mb-5 md:mb-0 ">
+                <h1 class="text-xl uppercase font-black"><a class="text-main" href="/">Cocktailnator</a></h1>
+            </div>
+
+            @guest
+                <div class="flex">
+                    <a class="btn-alt mr-3" href="{{ route('register') }}">Sign up</a>
+                    <a class="btn" href="{{ route('login') }}">Log in</a>
+                </div>
+            @endguest
+
+            @auth
+                <div>
+                    <p>Welcoming user</p>
+                </div>
+            @endauth
+
         </div>
-
+    </header>
     <!-- /Navigation -->
-    @yield('content')
+    <main class="container">
+        @yield('content')
 
 
-            <!-- startpage -->
-        </main>
-    </body>
+        <!-- startpage -->
+    </main>
+</body>
 
-    </html>
+</html>

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply bg-main text-yellow px-6 py-2 rounded-lg hover:bg-indigo-900 hover:text-yellow transition ease-out duration-200;
+}
+
+.btn-alt {
+    @apply text-main bg-yellow px-6 py-2 rounded-lg hover:bg-indigo-900 hover:text-yellow transition ease-out duration-200;
+}
+
+a {
+    @apply text-gray-500 hover:text-indigo-900;
+}
