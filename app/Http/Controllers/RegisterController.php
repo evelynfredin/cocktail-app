@@ -8,7 +8,6 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['guest']);
@@ -19,7 +18,8 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
         // $this->validate($request, [
         //     'email' => 'required|email|unique:users,email',
