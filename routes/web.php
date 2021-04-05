@@ -9,5 +9,9 @@ Route::get('/', function () {
 });
 
 /* Login, Register, Reset */
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/signup', [RegisterController::class, 'index'])->name('register');
+
+/* Only accessable by guests */
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::get('/signup', [RegisterController::class, 'index'])->name('register');
+});
