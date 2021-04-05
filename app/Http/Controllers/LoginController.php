@@ -15,4 +15,17 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return back()->withInput()->withstatus('Incorrect login details!');
+        }
+
+        return redirect()->route('/');
+    }
 }
