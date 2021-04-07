@@ -30,6 +30,7 @@ class CocktailController extends Controller
 
         $response = Http::get($searchForRecipe);
         $data = $response->json();
+
         $drinkKey = 0;
         foreach ($data['drinks'] as $drink) {
             $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
@@ -43,6 +44,7 @@ class CocktailController extends Controller
                 $drinkKey++;
             }
         }
+
         return view('index', ['searchData' => $data]);
     }
 }
