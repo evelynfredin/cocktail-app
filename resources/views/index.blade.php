@@ -8,12 +8,14 @@
 
 
 
+{{-- {{dd($data)}} --}}
 
     <div class="flex flex-col justify-center mt-20 px-10">
         <!-- Cards -->
-        @isset($searchData)
-            <x-apiCall :searchData="$searchData" />
+        @isset($data)
+            <x-apiCall :searchData="$data" />
         @endisset
+
         <!-- End cards -->
 
     </div>
