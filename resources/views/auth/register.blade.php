@@ -5,8 +5,19 @@
     <section class="flex justify-center">
         <div class=" w-full md:w-[480px] p-10">
             <h3 class="text-2xl font-semibold text-center mb-5">Register</h3>
-            <form action="" method="">
+            <form action="{{ route('signup') }}" method="POST">
                 @csrf
+
+                <div class="mb-5">
+                    <label class="text-gray-500" for="username">Username:</label>
+                    <input class="px-4 py-2 mt-2 placeholder:text-gray-400 w-full rounded-lg border border-main" placeholder="Desired username" type="text" name="username" id="username" value="{{ old('username') }}">
+                </div>
+
+                @error('username')
+                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
+                        {{ $message }}
+                    </div>
+                @enderror
 
                 <div class="mb-5">
                     <label class="text-gray-500" for="email">Email:</label>
@@ -14,7 +25,7 @@
                 </div>
 
                 @error('email')
-                    <div class="bg-red-500 py-1 px-3 mb-3 text-primary-100 mt-2">
+                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
                         {{ $message }}
                     </div>
                 @enderror
@@ -30,7 +41,7 @@
                 </div>
 
                 @error('password')
-                    <div class="bg-red-500 py-1 px-3 mb-3 text-primary-100 mt-2">
+                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
                         {{ $message }}
                     </div>
                 @enderror

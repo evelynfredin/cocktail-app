@@ -4,9 +4,8 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class apiCall extends Component
+class ApiCall extends Component
 {
-
     public $searchData;
 
     public function __construct($searchData)
