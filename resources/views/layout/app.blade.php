@@ -11,6 +11,7 @@
 </head>
 
 <body class="bg-gray-background container mx-auto text-main">
+    @include('errors')
     <header class="container px-10 mt-10 mb-16">
         <!-- Navigation -->
         <div class="flex flex-col md:flex-row h-auto items-center justify-between">

@@ -9,6 +9,7 @@ Route::get('/', function () {
 });
 
 /* Login, Register, Reset */
+Route::post('/login', [RegisterController::class, 'store'])->name('signup');
 
 /* Only accessable by guests */
 Route::middleware(['guest'])->group(function () {
