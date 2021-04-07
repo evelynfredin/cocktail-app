@@ -29,7 +29,7 @@
 
             @auth
                 <div>
-                    <p>Welcoming user</p>
+                    <p>Welcome, {{ $user->username }}!</p>
                 </div>
             @endauth
 
