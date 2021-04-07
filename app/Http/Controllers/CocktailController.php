@@ -38,6 +38,7 @@ class CocktailController extends Controller
 <<<<<<< HEAD
 =======
         foreach ($data['drinks'] as $drink) {
+            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
                 . $drink['idDrink'] . '';
 >>>>>>> upstream/master
 
