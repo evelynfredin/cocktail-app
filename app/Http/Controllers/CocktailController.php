@@ -8,11 +8,10 @@ use Illuminate\Support\Facades\Http;
 
 class CocktailController extends Controller
 {
-
     public function apiCallback()
     {
         $api_key = 9973533;
-        $url = 'https://www.thecocktaildb.com/api/json/v2/'.$api_key.'/popular.php';
+        $url = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
 
         $response = Http::get($url);
         $data = $response->json();
@@ -20,27 +19,27 @@ class CocktailController extends Controller
         return view('api.index')->with('data', $data);
     }
 
-    public function search(request $Request){
-
+    public function search(request $Request)
+    {
         $api_key = 9973533;
-        $search = str_replace(' ', '',$Request->search);
+        $search = str_replace(' ', '', $Request->search);
         $countInputs = explode(",", $search);
 
-        $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/'.$api_key.'/filter.php?i='. $search .'';
+        $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/filter.php?i=' . $search . '';
 
 
         $response = Http::get($searchForRecipe);
         $data = $response->json();
         $drinkKey = 0;
-        foreach($data['drinks'] as $drink){
-            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='.$drink['idDrink'].'';
+        foreach ($data['drinks'] as $drink) {
+            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=' . $drink['idDrink'] . '';
 
             $responseDrink = Http::get($searchEveryDrink);
             $dataDrink = $responseDrink->json();
 
-            foreach($dataDrink['drinks'] AS $key => $value){
-                    $data['drinks'][$drinkKey] = $value;
-                    $drinkKey++;
+            foreach ($dataDrink['drinks'] as $key => $value) {
+                $data['drinks'][$drinkKey] = $value;
+                $drinkKey++;
             }
         }
         return view('index', ['searchData' => $data]);
