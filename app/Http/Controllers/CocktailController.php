@@ -32,7 +32,8 @@ class CocktailController extends Controller
         $data = $response->json();
         $drinkKey = 0;
         foreach ($data['drinks'] as $drink) {
-            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=' . $drink['idDrink'] . '';
+            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
+                . $drink['idDrink'] . '';
 
             $responseDrink = Http::get($searchEveryDrink);
             $dataDrink = $responseDrink->json();
