@@ -613,6 +613,10 @@ video {
 	margin-left: auto;
 	margin-right: auto;
 }
+.my-2 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
 .mt-20 {
 	margin-top: 5rem;
 }
@@ -640,6 +644,12 @@ video {
 .mr-3 {
 	margin-right: 0.75rem;
 }
+.mr-2 {
+	margin-right: 0.5rem;
+}
+.mr-1 {
+	margin-right: 0.25rem;
+}
 .flex {
 	display: flex;
 }
@@ -657,6 +667,9 @@ video {
 }
 .h-\[40px\] {
 	height: 40px;
+}
+.h-5 {
+	height: 1.25rem;
 }
 .w-full {
 	width: 100%;
@@ -713,6 +726,10 @@ video {
 	--tw-border-opacity: 1;
 	border-color: rgba(33, 35, 77, var(--tw-border-opacity));
 }
+.bg-red {
+	--tw-bg-opacity: 1;
+	background-color: rgba(236, 69, 79, var(--tw-bg-opacity));
+}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -729,10 +746,6 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(247, 248, 252, var(--tw-bg-opacity));
 }
-.bg-red {
-	--tw-bg-opacity: 1;
-	background-color: rgba(236, 69, 79, var(--tw-bg-opacity));
-}
 .object-cover {
 	-o-object-fit: cover;
 	   object-fit: cover;
@@ -742,6 +755,9 @@ video {
 }
 .p-5 {
 	padding: 1.25rem;
+}
+.p-2 {
+	padding: 0.5rem;
 }
 .px-10 {
 	padding-left: 2.5rem;
@@ -806,6 +822,10 @@ video {
 .uppercase {
 	text-transform: uppercase;
 }
+.text-white {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
 .text-gray-500 {
 	--tw-text-opacity: 1;
 	color: rgba(115, 115, 115, var(--tw-text-opacity));
@@ -821,10 +841,6 @@ video {
 .text-main {
 	--tw-text-opacity: 1;
 	color: rgba(33, 35, 77, var(--tw-text-opacity));
-}
-.text-white {
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -876,6 +892,26 @@ video {
 }
 
 .btn-alt:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(255, 225, 78, var(--tw-text-opacity));
+}
+
+.btn-usr {
+	border-radius: 0.5rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(255, 225, 78, var(--tw-bg-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(33, 35, 77, var(--tw-text-opacity));
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-duration: 200ms;
+	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.btn-usr:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
 	--tw-text-opacity: 1;

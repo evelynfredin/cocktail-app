@@ -2,12 +2,8 @@
 
 @section('content')
 
-
 @component('components.searchBar')
 @endcomponent
-
-
-
 
     <div class="flex flex-col justify-center mt-20 px-10">
         <!-- Cards -->

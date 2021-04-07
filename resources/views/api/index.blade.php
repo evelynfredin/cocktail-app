@@ -2,11 +2,8 @@
 
 @section('content')
 
+    @if (count($data['drinks']) > 0)
 
-
-@if(count($data['drinks']) > 0 )
-
-
-@endif
+    @endif
 
 @endsection
