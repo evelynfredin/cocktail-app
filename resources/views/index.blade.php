@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 @component('components.searchBar')
 @endcomponent
 

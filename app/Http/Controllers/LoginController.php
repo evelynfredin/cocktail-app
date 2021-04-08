@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function Symfony\Component\String\b;
+
 class LoginController extends Controller
 {
     public function __construct()
@@ -19,15 +21,13 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        $credentials = $request->only('email', 'password');
 
-        if (!Auth::attempt($request->only('email', 'password'))) {
-            return back()->withInput()->withstatus('Incorrect login details!');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
         }
 
-        return redirect()->route('/');
+        return back()->withErrors('Wrong email/password combination');
     }
 }

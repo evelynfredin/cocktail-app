@@ -5,12 +5,13 @@
     <section class="flex justify-center">
         <div class="w-full md:w-[480px] p-10">
             <h3 class="text-2xl font-semibold text-center mb-5">Welcome back!</h3>
-            <form action="" method="">
+            @include('errors')
+            <form action="/login" method="POST">
                 @csrf
 
                 <div class="mb-5">
                     <label class="text-gray-500" for="email">Email:</label>
-                    <input class="px-4 py-2 mt-2 placeholder:text-gray-400 w-full rounded-lg border border-main" placeholder="Your email" type="email" name="email" id="email" value="{{ old('email') }}">
+                    <input class="px-4 py-2 mt-2 placeholder:text-gray-400 w-full rounded-lg border border-main" placeholder="Your email" type="email" name="email" id="email">
                 </div>
 
                 <div class="mb-5">
