@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 
@@ -19,5 +20,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/signup', [RegisterController::class, 'index'])->name('register');
 });
 
-
-// Route::get('/search', [RegisterController::class, 'index'])->name('register');
+/* When login/auth is created. Activate this middleware */
+// Route::middleware(['auth'])->group(function () {
+    Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
+// });

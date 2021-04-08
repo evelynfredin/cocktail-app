@@ -20,4 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/cocktail', [CocktailController::class, 'index']);
-Route::post('/search', [CocktailController::class, 'search']);
+Route::post('/search', [CocktailController::class, 'search'])->name('search');
