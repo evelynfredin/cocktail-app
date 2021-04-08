@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $api_key = env("API_KEY");
         $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
 
