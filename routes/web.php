@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\FavoritesController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -22,5 +23,8 @@ Route::middleware(['guest'])->group(function () {
 
 /* When login/auth is created. Activate this middleware */
 // Route::middleware(['auth'])->group(function () {
-    Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
+Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
 // });
+
+/* User's favorite recipes */
+Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
