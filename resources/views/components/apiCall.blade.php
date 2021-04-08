@@ -1,5 +1,3 @@
-<h2 class="text-center font-bold text-xl"></h2>
-
 
 
 @if ($searchData === 'No drinks or recipes could be found!')
@@ -7,6 +5,7 @@
         {{ $searchData }}
     </div>
 @else
+<h2 class="text-center font-bold text-2xl">{{ $text ?? '' }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach ($searchData['drinks'] as $drink)
             <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 my-5">
