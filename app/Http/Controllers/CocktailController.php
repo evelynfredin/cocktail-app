@@ -33,9 +33,9 @@ class CocktailController extends Controller
 
         $drinkKey = 0;
 
-        if($data['drinks'] === "None Found"){
+        if ($data['drinks'] === "None Found") {
             $data = 'No drinks or recipes could be found!';
-        }else{
+        } else {
             foreach ($data['drinks'] as $drink) {
                 $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
                     . $drink['idDrink'] . '';
