@@ -14,7 +14,7 @@
                 </div>
 
                 @error('username')
-                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
+                    <div class="bg-red text-white p-2 text-center my-2">
                         {{ $message }}
                     </div>
                 @enderror
@@ -25,7 +25,7 @@
                 </div>
 
                 @error('email')
-                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
+                    <div class="bg-red text-white p-2 text-center my-2">
                         {{ $message }}
                     </div>
                 @enderror
@@ -41,7 +41,7 @@
                 </div>
 
                 @error('password')
-                    <div class="bg-red py-1 px-3 mb-3 text-white mt-2">
+                    <div class="bg-red text-white p-2 text-center my-2">
                         {{ $message }}
                     </div>
                 @enderror
