@@ -13,7 +13,21 @@ class RecipeController extends Controller
 
         $response = Http::get($url);
         $data = $response->json();
+        $drink = $data['drinks'][0];
 
-        return view('viewRecipe', compact('data'));
+        $ingredients = [];
+
+        for ($i = 1; $i <= 15; $i++) {
+            $ingredient = $drink['strIngredient' . $i];
+            $measure = $drink['strMeasure' . $i];
+
+            if ($ingredient !== null && $measure !== null) {
+                $ingredients[] = [
+                    'ingredient' => $ingredient,
+                    'measure' => $measure
+                ];
+            }
+        }
+        return view('viewRecipe', compact('drink', 'ingredients'));
     }
 }

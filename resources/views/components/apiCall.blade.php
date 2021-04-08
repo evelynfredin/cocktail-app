@@ -1,7 +1,5 @@
 <h2 class="text-center font-bold text-xl"></h2>
 
-
-
 @if ($searchData === 'No drinks or recipes could be found!')
     <div class="content-center flex justify-center">
         {{ $searchData }}
