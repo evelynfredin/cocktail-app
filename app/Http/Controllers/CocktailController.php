@@ -21,7 +21,7 @@ class CocktailController extends Controller
 
     public function search(request $Request)
     {
-        $api_key = 9973533;
+        $api_key = env("API_KEY");
         $search = str_replace(' ', '', $Request->search);
         $countInputs = explode(",", $search);
 
