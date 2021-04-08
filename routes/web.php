@@ -19,7 +19,6 @@ Route::post('/login', [RegisterController::class, 'store'])->name('signup');
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::get('/signup', [RegisterController::class, 'index'])->name('register');
-
 });
 
 /* When login/auth is created. Activate this middleware */
