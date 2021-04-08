@@ -32,19 +32,24 @@ class CocktailController extends Controller
         $data = $response->json();
 
         $drinkKey = 0;
-        foreach ($data['drinks'] as $drink) {
-            $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
-                . $drink['idDrink'] . '';
 
-            $responseDrink = Http::get($searchEveryDrink);
-            $dataDrink = $responseDrink->json();
+        if($data['drinks'] === "None Found"){
+            $data = 'No drinks or recipes could be found!';
+        }else{
+            foreach ($data['drinks'] as $drink) {
+                $searchEveryDrink =  'https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i='
+                    . $drink['idDrink'] . '';
 
-            foreach ($dataDrink['drinks'] as $key => $value) {
-                $data['drinks'][$drinkKey] = $value;
-                $drinkKey++;
+                $responseDrink = Http::get($searchEveryDrink);
+                $dataDrink = $responseDrink->json();
+
+                foreach ($dataDrink['drinks'] as $key => $value) {
+                    $data['drinks'][$drinkKey] = $value;
+                    $drinkKey++;
+                }
             }
         }
-
-        return view('index', ['searchData' => $data]);
+        // dd($data);
+        return view('index', compact('data'));
     }
 }
