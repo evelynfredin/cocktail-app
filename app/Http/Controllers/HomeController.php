@@ -10,17 +10,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $api_key = env("API_KEY");
         $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
 
         $response = Http::get($searchForRecipe);
         $data = $response->json();
 
-
-        $user = Auth::user();
         return view('index', [
-            'user' => $user,
             'popularDrinks' => $data
         ]);
     }
