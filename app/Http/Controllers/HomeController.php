@@ -11,13 +11,32 @@ class HomeController extends Controller
     public function index()
     {
         $api_key = env("API_KEY");
-        $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
+        $mostPopular = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
 
-        $response = Http::get($searchForRecipe);
-        $data = $response->json();
+        $response = Http::get($mostPopular);
+        $mostPopular = $response->json();
+
+
+
+        if (count($mostPopular['drinks']) > 15) {
+            for ($x = 14; $x <= count($mostPopular['drinks']); $x++) {
+                unset($mostPopular['drinks'][$x]);
+            }
+        }
+
+
+        $latest = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/latest.php';
+
+        $response = Http::get($latest);
+        $latest = $response->json();
+
+        $user = Auth::user();
 
         return view('index', [
-            'popularDrinks' => $data
+            'user' => $user,
+            'popularDrinks' => $mostPopular,
+            'latestDrinks' => $latest,
+            'visible' => 16
         ]);
     }
 }
