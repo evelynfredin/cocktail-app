@@ -28,7 +28,6 @@ class HomeController extends Controller
         $response = Http::get($latest);
         $latest = $response->json();
 
-
         $user = Auth::user();
 
         return view('index', [
@@ -36,6 +35,5 @@ class HomeController extends Controller
             'popularDrinks' => $mostPopular,
             'latestDrinks' => $latest,
             'visible' => 16
-        ]);
     }
 }

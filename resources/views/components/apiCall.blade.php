@@ -1,5 +1,4 @@
 
-
 @if ($searchData === 'No drinks or recipes could be found!')
     <div class="content-center flex justify-center">
         {{ $searchData }}
