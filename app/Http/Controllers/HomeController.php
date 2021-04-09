@@ -18,8 +18,8 @@ class HomeController extends Controller
 
 
 
-        if(count($mostPopular['drinks']) > 15){
-            for($x = 14; $x <= count($mostPopular['drinks']); $x++){
+        if (count($mostPopular['drinks']) > 15) {
+            for ($x = 14; $x <= count($mostPopular['drinks']); $x++) {
                 unset($mostPopular['drinks'][$x]);
             }
         }

@@ -24,18 +24,14 @@ Route::middleware(['guest'])->group(function () {
     /* Login, Register, Reset */
     Route::post('/login', [LoginController::class, 'store']);
     Route::post('/signup', [RegisterController::class, 'store'])->name('signup');
-
 });
 
 /* When login/auth is created. Activate this middleware */
 Route::middleware(['auth'])->group(function () {
-Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
-Route::get('/logout', [LogoutController::class, 'logout']);
+    Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
+    Route::get('/logout', [LogoutController::class, 'logout']);
 
-/* User specifics */
-Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
-Route::resource('profile', UserController::class);
-
+    /* User specifics */
+    Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
+    Route::resource('profile', UserController::class);
 });
-
-
