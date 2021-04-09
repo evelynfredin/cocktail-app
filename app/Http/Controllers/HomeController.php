@@ -16,12 +16,14 @@ class HomeController extends Controller
         $response = Http::get($mostPopular);
         $mostPopular = $response->json();
 
+
+
         if(count($mostPopular['drinks']) > 15){
             for($x = 14; $x <= count($mostPopular['drinks']); $x++){
                 unset($mostPopular['drinks'][$x]);
             }
         }
-        // dd($mostPopular);
+
 
         $latest = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/latest.php';
 
@@ -35,5 +37,6 @@ class HomeController extends Controller
             'popularDrinks' => $mostPopular,
             'latestDrinks' => $latest,
             'visible' => 16
+        ]);
     }
 }
