@@ -15,7 +15,7 @@
         <!-- Navigation -->
         <div class="flex flex-col md:flex-row h-auto items-center justify-between">
             <!-- Here maybe we can hide the logo if the route is '/' -->
-            <div class="mb-5 md:mb-0 ">
+            <div class="mb-5 md:mb-0">
                 <h1 class="text-xl uppercase font-black"><a class="text-main" href="/">Cocktailnator</a></h1>
             </div>
 

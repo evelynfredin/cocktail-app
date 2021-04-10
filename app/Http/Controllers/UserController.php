@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Favorites;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +15,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.profile');
+        $favorites = User::with(['favorites'])->findOrFail(auth()->id());
+
+        return view('user.profile', [
+            'user' => $favorites
+        ]);
     }
 
     /**

@@ -10,8 +10,8 @@ class CocktailController extends Controller
 {
     public function apiCallback()
     {
-        $api_key = 9973533;
-        $url = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/popular.php';
+        $apiKey = env("API_KEY");
+        $url = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/popular.php';
 
         $response = Http::get($url);
         $data = $response->json();
@@ -21,11 +21,11 @@ class CocktailController extends Controller
 
     public function search(request $Request)
     {
-        $api_key = env("API_KEY");
+        $apiKey = env("API_KEY");
         $search = str_replace(' ', '', $Request->search);
         $countInputs = explode(",", $search);
 
-        $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $api_key . '/filter.php?i=' . $search . '';
+        $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/filter.php?i=' . $search . '';
 
 
         $response = Http::get($searchForRecipe);
