@@ -9,12 +9,8 @@ class RecipeController extends Controller
 {
     public function index($id)
     {
-        $url = 'https://www.thecocktaildb.com/api/json/v2/' . env("API_KEY") . '/lookup.php?i=' . $id . '';
-
-        $response = Http::get($url);
-        $data = $response->json();
+        $data = cocktailApiCall('/lookup.php?i=' . $id . '');
         $drink = $data['drinks'][0];
-
         $ingredients = [];
 
         for ($i = 1; $i <= 15; $i++) {
