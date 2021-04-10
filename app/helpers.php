@@ -1,13 +1,15 @@
 <?php
 
-    function cocktailApiCall($page, ...$args)
-    {
-        $values = $args;
-        $apiKey = env("API_KEY");
-        $mostPopular = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/' . $page . '';
+use Illuminate\Support\Facades\Http;
 
-        $response = Http::get($mostPopular);
-        $mostPopular = $response->json();
+function cocktailApiCall($page, ...$args)
+{
+    $values = $args;
+    $apiKey = env("API_KEY");
+    $mostPopular = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/' . $page . '';
 
-        return $mostPopular;
-    }
+    $response = Http::get($mostPopular);
+    $mostPopular = $response->json();
+
+    return $mostPopular;
+}
