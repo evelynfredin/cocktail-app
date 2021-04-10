@@ -1,6 +1,7 @@
 <?php
-    function cocktailApiCall($page, ...$args){
 
+    function cocktailApiCall($page, ...$args)
+    {
         $values = $args;
         $apiKey = env("API_KEY");
         $mostPopular = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/' . $page . '';
@@ -10,4 +11,3 @@
 
         return $mostPopular;
     }
-?>

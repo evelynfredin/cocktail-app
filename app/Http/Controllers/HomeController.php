@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $mostPopular = cocktailApiCall('popular.php');
         $latest = cocktailApiCall('latest.php');
 
