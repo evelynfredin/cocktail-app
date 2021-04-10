@@ -14,8 +14,9 @@ class CreateUserDrinkTable extends Migration
     public function up()
     {
         Schema::create('user_drink', function (Blueprint $table) {
+            $table->id();
             $table->unsignedInteger('user_id');
-            $table->string('isDrink');
+            $table->string('drink_id');
             $table->timestamps();
         });
     }

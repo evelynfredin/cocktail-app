@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorites;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class FavoritesController extends Controller
@@ -15,31 +17,20 @@ class FavoritesController extends Controller
 
     public function index()
     {
-        return view('user.favorites');
+        $favorites = User::with(['favorites'])->findOrFail(auth()->id());
+
+        return view('user.profile', [
+            'user' => $favorites
+        ]);
     }
 
-    public function update(User $user, Request $request)
+    public function storeFavorite(Request $request, $drink_id)
     {
-        $this->authorize('edit', $user);
-
-        $this->validate($request, [
-            'username' => 'required|max:255|alpha_num',
-            'email' => 'required|max:255|email',
-            'password' => 'required|confirmed|min:6',
+        Favorites::create([
+            'user_id' => $request->user()->id,
+            'drink_id' => $drink_id
         ]);
 
-        if ($request->password === null) {
-            $user->update([
-                'username' => $request->username,
-                'email' => $request->email,
-            ]);
-        } else {
-            $user->update([
-                'username' => $request->username,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
-            ]);
-        }
-        return back()->with('status', 'Your profile has been updated.');
+        return redirect()->back();
     }
 }
