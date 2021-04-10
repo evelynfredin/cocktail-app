@@ -9,7 +9,6 @@ class RecipeController extends Controller
 {
     public function index($id)
     {
-
         $data = cocktailApiCall('/lookup.php?i=' . $id . '');
         $drink = $data['drinks'][0];
         $ingredients = [];
