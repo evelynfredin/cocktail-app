@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LogoutController::class, 'logout']);
 
     /* User specifics */
-    Route::get('/favorites', [FavoritesController::class, 'index'])->name('favorites');
-    Route::resource('profile', UserController::class);
+    Route::get('/profile', [FavoritesController::class, 'index'])->name('profile');
+    Route::put('/editprofile/{user:id}', [UserController::class, 'update'])->name('update');
+    Route::post('/addfavorite/{drinkId}', [FavoritesController::class, 'storeFavorite'])->name('addfavorite');
 });
