@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Favorites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -21,11 +23,14 @@ class HomeController extends Controller
 
         $user = Auth::user();
 
+        $favorites = Favorites::where('user_id', $user->id)->get();
+
         return view('index', [
             'user' => $user,
             'popularDrinks' => $mostPopular,
             'latestDrinks' => $latest,
-            'visible' => 16
+            'visible' => 16,
+            'favorites' => $favorites
         ]);
     }
 }
