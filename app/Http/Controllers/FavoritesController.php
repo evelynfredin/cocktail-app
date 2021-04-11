@@ -23,7 +23,7 @@ class FavoritesController extends Controller
 
         $savedDrinks = array();
         foreach ($drinks as $drink) {
-            $savedDrinks[] = cocktailApiCall('lookup.php?i=' . $drink->drink_id . '')['drinks'];
+            $savedDrinks[] = cocktailApiCall('lookup.php?i=' . $drink->drink_id . '')['drinks'][0];
         }
 
         return view('user.profile', [

@@ -8,50 +8,56 @@
         </div>
     @endif
 
-    <section class="container px-0 md:px-10 mx-auto grid grid-cols-1 lg:grid-cols-4">
-
-
-        <div class="lg:col-span-3 mr-0 lg:mr-5 py-5 px-10 md:px-0 mb-10 h-auto">
+    <section class="container px-0 md:px-10 mx-auto flex flex-col lg:flex-row">
+        <div class="mr-0 lg:mr-5 px-10 md:px-0 mb-10 h-auto lg:w-2/3">
             <h2 class="font-bold text-2xl mt-10 uppercase">saved drinks</h2>
             @empty($drinks)
             You dont have any saved favorite drinks.
             @endempty
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                @foreach ($drinks as $drink)
 
-
-
-            @foreach ($drinks as $key => $value)
-                <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 my-5">
-                    <div class="content-center flex justify-center relative">
-                        <a href="{{ route('recipe', $value[0]['idDrink']) }}">
-                            <img src="{{ $value[0]['strDrinkThumb'] }}" alt="{{ $value[0]['strDrink'] }}" class="w-full h-[156px] object-cover rounded-t-md">
-                        </a>
-
+                    <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 mb-5">
+                        <div>
+                            <div class="content-center flex justify-center relative">
+                                <a href="{{ route('recipe', $drink['idDrink']) }}">
+                                    <img src="{{ $drink['strDrinkThumb'] }}" alt="{{ $drink['strDrink'] }}" class="w-full h-[156px] object-cover rounded-t-md">
+                                </a>
+                                <div class="flex bg-main text-yellow text-sm rounded-full py-1 px-2 absolute bottom-0 right-0 m-2 mt-2">
+                                    <span class="whitespace-nowrap">
+                                        <svg class="inline-block w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        10 mins
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="p-5">
+                                <a class="text-main hover:text-indigo-900" href="{{ route('recipe', $drink['idDrink']) }}">
+                                    <h3 class="text-lg font-semibold">{{ $drink['strDrink'] }}</h3>
+                                </a>
+                                <p>{{ $drink['strInstructions'] }}</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between h-auto px-5 mb-5">
+                            <a href="{{ route('recipe', $drink['idDrink']) }}">View recipe</a>
+                            <form action="{{ route('deletefavorite', $drink['idDrink']) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    <svg class="w-5 cursor-pointer text-red fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="p-5">
-                        <a class="text-main hover:text-indigo-900" href="{{ route('recipe', $value[0]['idDrink']) }}">
-                            <h3 class="text-lg font-semibold">{{ $value[0]['strDrink'] }}</h3>
-                        </a>
-                        <p>{{ $value[0]['strInstructions'] }}</p>
-                    </div>
-                    <div class="flex justify-between h-auto px-5 mb-5">
-                        <a href="{{ route('recipe', $value[0]['idDrink']) }}">View recipe</a>
-                        <form action="{{ route('deletefavorite', $value[0]['idDrink']) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">
-                                <svg class="w-5 cursor-pointer text-red fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            @endforeach
+
+                @endforeach
             </div>
         </div>
 
-        <div class="border col-span-1 bg-gray-50 py-5">
+        <div class="border lg:w-1/3 bg-gray-50 py-5 h-[510px]">
             <h3 class="font-xl font-bold text-center">Edit profile</h3>
             <form class="px-10" action="{{ route('update', $user) }}" method="post">
                 @csrf
