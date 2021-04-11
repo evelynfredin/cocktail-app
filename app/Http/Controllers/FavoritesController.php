@@ -22,7 +22,7 @@ class FavoritesController extends Controller
         $drinks = Favorites::where('user_id', auth()->id())->get();
 
         foreach ($drinks as $drink) {
-            $savedDrinks[] = cocktailApiCall('lookup.php?i=' . $drink->drink_id . '')['drinks'];
+            $savedDrinks[] = cocktailApiCall('lookup.php?i=' . $drink->drink_id . '')['drinks'][0];
         }
 
         return view('user.profile', [
