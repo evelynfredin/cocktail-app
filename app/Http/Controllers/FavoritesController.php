@@ -21,8 +21,8 @@ class FavoritesController extends Controller
 
         $drinks = Favorites::where('user_id', auth()->id())->get();
 
-        foreach($drinks as $drink){
-            $savedDrinks[] = cocktailApiCall('lookup.php?i='.$drink->drink_id.'')['drinks'];
+        foreach ($drinks as $drink) {
+            $savedDrinks[] = cocktailApiCall('lookup.php?i=' . $drink->drink_id . '')['drinks'];
         }
 
         return view('user.profile', [
