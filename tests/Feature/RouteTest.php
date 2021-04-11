@@ -10,29 +10,28 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RouteTest extends TestCase
 {
-
     use RefreshDatabase;
 
 
-     public function test_create_user()
-     {
-         $user = new User();
-         $user->username = 'Robot Test';
-         $user->email = 'Robot@test.se';
-         $user->password = Hash::make('password');
-         $user->save();
+    public function test_create_user()
+    {
+        $user = new User();
+        $user->username = 'Robot Test';
+        $user->email = 'Robot@test.se';
+        $user->password = Hash::make('password');
+        $user->save();
 
-         $response = $this
+        $response = $this
          ->assertDatabaseHas('users', ['email' => 'Robot@test.se']);
-     }
+    }
 
-     public function test_login_user()
-     {
-         $user = new User();
-         $user->username = 'Robot Test';
-         $user->email = 'Robot@test.se';
-         $user->password = Hash::make('password');
-         $user->save();
+    public function test_login_user()
+    {
+        $user = new User();
+        $user->username = 'Robot Test';
+        $user->email = 'Robot@test.se';
+        $user->password = Hash::make('password');
+        $user->save();
 
         $response = $this
         ->followingRedirects()
@@ -42,21 +41,21 @@ class RouteTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-     }
+    }
 
-     public function test_all_routes()
-     {
+    public function test_all_routes()
+    {
         $urls = [
             '/',
             '/login',
             '/signup',
         ];
 
-        foreach($urls as $url){
+        foreach ($urls as $url) {
             $response = $this->get($url);
-            if($response->assertStatus(200)){
+            if ($response->assertStatus(200)) {
                 $this->assertTrue(true);
-            }else{
+            } else {
                 $this->assertTrue(false);
             }
         }
@@ -73,24 +72,20 @@ class RouteTest extends TestCase
         $user->password = Hash::make('password');
         $user->save();
 
-       $response = $this
+        $response = $this
        ->followingRedirects()
        ->post('login', [
            'email' => 'Robot@test.se',
            'password' => 'password'
        ]);
 
-        foreach($urls_logged_in as $url){
+        foreach ($urls_logged_in as $url) {
             $response = $this->actingAs($user)->get($url);
-            if($response->assertStatus(200)){
+            if ($response->assertStatus(200)) {
                 $this->assertTrue(true);
-            }else{
+            } else {
                 $this->assertTrue(false);
             }
         }
-
-
-
-     }
-
+    }
 }
