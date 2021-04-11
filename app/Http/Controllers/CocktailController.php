@@ -9,17 +9,6 @@ use Illuminate\Support\Facades\Http;
 
 class CocktailController extends Controller
 {
-    // public function apiCallback()
-    // {
-    //     $apiKey = env("API_KEY");
-    //     $url = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/popular.php';
-
-    //     $response = Http::get($url);
-    //     $data = $response->json();
-
-    //     return view('api.index')->with('data', $data);
-    // }
-
     public function search(request $Request)
     {
         $apiKey = env("API_KEY");
@@ -27,7 +16,6 @@ class CocktailController extends Controller
         $countInputs = explode(",", $search);
 
         $searchForRecipe = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/filter.php?i=' . $search . '';
-
 
         $response = Http::get($searchForRecipe);
         $data = $response->json();
