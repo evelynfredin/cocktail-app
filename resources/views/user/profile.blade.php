@@ -12,8 +12,9 @@
 
         <div class="border border-green-300 lg:col-span-3 mr-0 lg:mr-5 py-5 px-10 md:px-0 mb-10 h-auto">
             <h2 class="text-2xl font-bold">Favorite drinks</h2>
+
             @foreach ($user->favorites as $favorite)
-                Drink id: {{ $favorite->isDrink }}<br />
+                Drink id: {{ $favorite->drink_id }}<br />
             @endforeach
         </div>
 
