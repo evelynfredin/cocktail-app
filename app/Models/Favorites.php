@@ -14,6 +14,4 @@ class Favorites extends Model
         'user_id',
         'drink_id'
     ];
-
-
 }
