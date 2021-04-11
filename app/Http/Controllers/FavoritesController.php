@@ -17,10 +17,17 @@ class FavoritesController extends Controller
 
     public function index()
     {
-        $favorites = User::with(['favorites'])->findOrFail(auth()->id());
+        $favorites = User::findOrFail(auth()->id());
+
+        $drinks = Favorites::where('user_id', auth()->id())->get();
+
+        foreach($drinks as $drink){
+            $savedDrinks[] = cocktailApiCall('lookup.php?i='.$drink->drink_id.'')['drinks'];
+        }
 
         return view('user.profile', [
-            'user' => $favorites
+            'user' => $favorites,
+            'drinks' => $savedDrinks
         ]);
     }
 
