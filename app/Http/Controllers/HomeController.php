@@ -23,7 +23,10 @@ class HomeController extends Controller
 
         $user = Auth::user();
 
-        $favorites = Favorites::where('user_id', $user->id)->get();
+        $favorites = null;
+        if ($user != null) {
+            $favorites = Favorites::where('user_id', $user->id)->get();
+        }
 
         return view('index', [
             'user' => $user,

@@ -33,8 +33,7 @@
                     @auth
 
                         <!-- Check if use has favorited this drink -->
-
-                        @if($favorites->contains('drink_id', $drink['idDrink']))
+                        @if ($favorites->contains('drink_id', $drink['idDrink']))
                             <form action="{{ route('deletefavorite', $drink['idDrink']) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -56,8 +55,6 @@
                                 </button>
                             </form>
                         @endif
-
-
                     @endauth
                 </div>
             </div>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Favorites extends Model
 {
     use HasFactory;
+
     protected $table = 'user_drink';
 
     protected $fillable = [
