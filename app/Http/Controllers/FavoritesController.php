@@ -24,10 +24,10 @@ class FavoritesController extends Controller
         ]);
     }
 
-    public function storeFavorite(Request $request, $drink_id)
+    public function storeFavorite($drink_id)
     {
         Favorites::create([
-            'user_id' => $request->user()->id,
+            'user_id' => auth()->user()->id,
             'drink_id' => $drink_id
         ]);
 
