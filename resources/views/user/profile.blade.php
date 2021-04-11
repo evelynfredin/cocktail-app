@@ -10,12 +10,17 @@
 
     <section class="container px-0 md:px-10 mx-auto grid grid-cols-1 lg:grid-cols-4">
 
+
         <div class="lg:col-span-3 mr-0 lg:mr-5 py-5 px-10 md:px-0 mb-10 h-auto">
+            <h2 class="font-bold text-2xl mt-10 uppercase">saved drinks</h2>
+            @empty($drinks)
+            You dont have any saved favorite drinks.
+            @endempty
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 
 
-            @foreach ($drinks as $key => $value)
 
+            @foreach ($drinks as $key => $value)
                 <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 my-5">
                     <div class="content-center flex justify-center relative">
                         <a href="{{ route('recipe', $value[0]['idDrink']) }}">

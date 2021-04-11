@@ -15,4 +15,10 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+    public function RoutesTest()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
 }
