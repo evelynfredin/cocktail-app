@@ -33,4 +33,13 @@ class FavoritesController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Request $request, $drink_id)
+    {
+        Favorites::where([
+            'user_id' => auth()->id(),
+            'drink_id' => $drink_id
+        ])->delete();
+        return redirect()->back();
+    }
 }

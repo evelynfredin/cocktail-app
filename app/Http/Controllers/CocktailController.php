@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorites;
 use Illuminate\Http\Request;
 use Facade\FlareClient\Http\Client;
 use Illuminate\Support\Facades\Http;
 
 class CocktailController extends Controller
 {
-    public function apiCallback()
-    {
-        $apiKey = env("API_KEY");
-        $url = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/popular.php';
+    // public function apiCallback()
+    // {
+    //     $apiKey = env("API_KEY");
+    //     $url = 'https://www.thecocktaildb.com/api/json/v2/' . $apiKey . '/popular.php';
 
-        $response = Http::get($url);
-        $data = $response->json();
+    //     $response = Http::get($url);
+    //     $data = $response->json();
 
-        return view('api.index')->with('data', $data);
-    }
+    //     return view('api.index')->with('data', $data);
+    // }
 
     public function search(request $Request)
     {
@@ -49,7 +50,8 @@ class CocktailController extends Controller
                 }
             }
         }
-        // dd($data);
-        return view('index', compact('data'));
+
+        $favorites = Favorites::where('user_id', auth()->id())->get();
+        return view('index', compact('data', 'favorites'));
     }
 }
