@@ -28,7 +28,6 @@ Route::middleware(['guest'])->group(function () {
 
 /* When login/auth is created. Activate this middleware */
 Route::middleware(['auth'])->group(function () {
-    Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
     Route::get('/logout', [LogoutController::class, 'logout']);
 
     /* User specifics */
@@ -37,3 +36,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/addfavorite/{drinkId}', [FavoritesController::class, 'storeFavorite'])->name('addfavorite');
     Route::delete('/deletefavorite/{drinkId}', [FavoritesController::class, 'destroy'])->name('deletefavorite');
 });
+
+Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');

@@ -33,8 +33,7 @@
                     @auth
 
                         <!-- Check if use has favorited this drink -->
-
-                        @if($favorites->contains('drink_id', $drink['idDrink']))
+                        @if ($favorites->contains('drink_id', $drink['idDrink']))
                             <form action="{{ route('deletefavorite', $drink['idDrink']) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -46,17 +45,14 @@
                             </form>
                         @else
                             <!-- Show the form below -->
-
-
-
-                        <form action="{{ route('addfavorite', $drink['idDrink']) }}" method="post">
-                            @csrf
-                            <button type="submit">
-                                <svg class="w-5 hover:text-red hover:fill-current cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </button>
-                        </form>
+                            <form action="{{ route('addfavorite', $drink['idDrink']) }}" method="post">
+                                @csrf
+                                <button type="submit">
+                                    <svg class="w-5 hover:text-red hover:fill-current cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                    </svg>
+                                </button>
+                            </form>
                         @endif
                     @endauth
                 </div>

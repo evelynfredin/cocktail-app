@@ -17,7 +17,11 @@ class RecipeController extends Controller
             $ingredient = $drink['strIngredient' . $i];
             $measure = $drink['strMeasure' . $i];
 
-            if ($ingredient !== null && $measure !== null) {
+            if (
+                $ingredient !== null &&
+                $measure !== null &&
+                $ingredient !== ''
+            ) {
                 $ingredients[] = [
                     'ingredient' => $ingredient,
                     'measure' => $measure
