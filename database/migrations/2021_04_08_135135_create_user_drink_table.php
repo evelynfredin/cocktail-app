@@ -17,8 +17,6 @@ class CreateUserDrinkTable extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->string('drink_id');
-            $table->string('src');
-            $table->string('description');
             $table->timestamps();
         });
     }

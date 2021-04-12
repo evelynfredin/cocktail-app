@@ -14,8 +14,6 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 
 
-
-
 /* Only accessable by guests */
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
