@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\CocktailController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\FavoritesController;
 
@@ -36,3 +37,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
+
+Route::get('/cocktail', [CocktailController::class, 'index']);
+Route::post('/search', [CocktailController::class, 'search'])->name('search');
