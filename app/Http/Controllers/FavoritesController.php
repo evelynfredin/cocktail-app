@@ -17,7 +17,6 @@ class FavoritesController extends Controller
 
     public function index()
     {
-
         $favorites = User::findOrFail(auth()->id());
 
         $drinks = Favorites::where('user_id', auth()->id())->get();

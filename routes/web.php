@@ -36,4 +36,3 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('recipe');
-
