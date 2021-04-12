@@ -12,8 +12,7 @@ class CocktailController extends Controller
 {
     public function search(request $Request)
     {
-
-        if($Request->input('searchText') != null){
+        if ($Request->input('searchText') != null) {
             dd($Request);
         }
 
