@@ -40,6 +40,7 @@ class CocktailController extends Controller
         }
 
         $favorites = Favorites::where('user_id', auth()->id())->get();
+
         return view('index', compact('data', 'favorites'));
     }
 }

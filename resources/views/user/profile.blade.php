@@ -19,9 +19,10 @@
 
                     <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 mb-5">
                         <div>
+                            {{-- {{dd($drink)}} --}}
                             <div class="content-center flex justify-center relative">
-                                <a href="{{ route('recipe', $drink['idDrink']) }}">
-                                    <img src="{{ $drink['strDrinkThumb'] }}" alt="{{ $drink['strDrink'] }}" class="w-full h-[156px] object-cover rounded-t-md">
+                                <a href="{{ route('recipe', $drink['0']['idDrink']) }}">
+                                    <img src="{{ $drink['0']['strDrinkThumb'] }}" alt="{{ $drink['0']['strDrink'] }}" class="w-full h-[156px] object-cover rounded-t-md">
                                 </a>
                                 <div class="flex bg-main text-yellow text-sm rounded-full py-1 px-2 absolute bottom-0 right-0 m-2 mt-2">
                                     <span class="whitespace-nowrap">
@@ -33,15 +34,15 @@
                                 </div>
                             </div>
                             <div class="p-5">
-                                <a class="text-main hover:text-indigo-900" href="{{ route('recipe', $drink['idDrink']) }}">
-                                    <h3 class="text-lg font-semibold">{{ $drink['strDrink'] }}</h3>
+                                <a class="text-main hover:text-indigo-900" href="{{ route('recipe', $drink['0']['idDrink']) }}">
+                                    <h3 class="text-lg font-semibold">{{ $drink['0']['strDrink'] }}</h3>
                                 </a>
-                                <p>{{ $drink['strInstructions'] }}</p>
+                                <p>{{ $drink['0']['strInstructions'] }}</p>
                             </div>
                         </div>
                         <div class="flex justify-between h-auto px-5 mb-5">
-                            <a href="{{ route('recipe', $drink['idDrink']) }}">View recipe</a>
-                            <form action="{{ route('deletefavorite', $drink['idDrink']) }}" method="post">
+                            <a href="{{ route('recipe', $drink['0']['idDrink']) }}">View recipe</a>
+                            <form action="{{ route('deletefavorite', $drink['0']['idDrink']) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">
