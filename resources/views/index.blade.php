@@ -6,8 +6,8 @@
     @endcomponent
 
     <div class="flex flex-col justify-center mt-20 px-10">
-        <!-- Cards -->
 
+        <!-- Cards -->
         @isset($data)
             <x-apiCall :searchData="$data" text="" visible="all" :favorites="$favorites" />
         @endisset

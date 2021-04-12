@@ -39,8 +39,8 @@ class FavoritesController extends Controller
             'user_id' => auth()->user()->id,
             'drink_id' => $drink_id
         ]);
-        $request->request->add(['searchText' => 'test']);
-        return back();
+
+        return redirect()->route('reSearch');
     }
 
     public function destroy(Request $request, $drink_id)

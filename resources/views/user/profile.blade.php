@@ -14,6 +14,7 @@
             @empty($drinks)
             You dont have any saved favorite drinks.
             @endempty
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @foreach ($drinks as $drink)
 
