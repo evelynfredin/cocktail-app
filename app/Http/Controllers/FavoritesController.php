@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Favorites;
 use App\Models\User;
+use App\Models\Favorites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\CocktailController;
 
 class FavoritesController extends Controller
 {
@@ -32,14 +33,14 @@ class FavoritesController extends Controller
         ]);
     }
 
-    public function storeFavorite($drink_id)
+    public function storeFavorite(Request $request, $drink_id)
     {
         Favorites::create([
             'user_id' => auth()->user()->id,
             'drink_id' => $drink_id
         ]);
-
-        return redirect()->back();
+        $request->request->add(['searchText' => 'test']);
+        return back();
     }
 
     public function destroy(Request $request, $drink_id)
