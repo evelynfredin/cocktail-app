@@ -40,3 +40,4 @@ Route::get('/viewRecipe/{drinkId}', [RecipeController::class, 'index'])->name('r
 
 Route::get('/cocktail', [CocktailController::class, 'index']);
 Route::post('/search', [CocktailController::class, 'search'])->name('search');
+Route::get('/search', [CocktailController::class, 'reSearch'])->name('reSearch');

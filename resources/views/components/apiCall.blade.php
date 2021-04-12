@@ -4,7 +4,6 @@
     </div>
 @else
     <h2 class="text-center font-bold text-2xl mt-10 uppercase">{{ $text ?? '' }}</h2>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
         @foreach ($searchData['drinks'] as $drink)
             <div class="w-full flex flex-col justify-between bg-white rounded-t-md shadow-xl gap-4 my-5">
@@ -13,14 +12,6 @@
                         <a href="{{ route('recipe', $drink['idDrink']) }}">
                             <img src="{{ $drink['strDrinkThumb'] }}" alt="{{ $drink['strDrink'] }}" class="w-full h-[156px] object-cover rounded-t-md">
                         </a>
-                        <div class="flex bg-main text-yellow text-sm rounded-full py-1 px-2 absolute bottom-0 right-0 m-2 mt-2">
-                            <span class="whitespace-nowrap">
-                                <svg class="inline-block w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                10 mins
-                            </span>
-                        </div>
                     </div>
                     <div class="p-5">
                         <a class="text-main hover:text-indigo-900" href="{{ route('recipe', $drink['idDrink']) }}">
