@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Http;
 
 class CocktailController extends Controller
 {
-
     public function reSearch()
     {
         $data = cocktailApiCall('/filter.php?i=' . session('searchText') . '');
@@ -22,7 +21,6 @@ class CocktailController extends Controller
 
     public function search(request $Request)
     {
-
         $search = str_replace(' ', '', $Request->search);
         session(['searchText' => $search]);
         $data = cocktailApiCall('/filter.php?i=' . $search . '');
