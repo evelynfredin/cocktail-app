@@ -10,7 +10,7 @@
 
     <section class="container px-0 md:px-10 mx-auto flex flex-col lg:flex-row">
         <div class="mr-0 lg:mr-5 px-10 md:px-0 mb-10 h-auto lg:w-2/3">
-            <h2 class="font-bold text-2xl mt-10 uppercase">saved drinks</h2>
+            <h2 class="font-bold text-2xl mb-5 uppercase">saved drinks</h2>
             @empty($drinks)
             You dont have any saved favorite drinks.
             @endempty

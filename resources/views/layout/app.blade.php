@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
-<body class="bg-gray-background container mx-auto text-main">
-    <header class="container px-10 mt-10 mb-16">
+<body class="bg-gray-background text-main">
+    <header class="container mx-auto px-10 mt-10 mb-16">
         <!-- Navigation -->
         <div class="flex flex-col md:flex-row h-auto items-center justify-between">
             <!-- Here maybe we can hide the logo if the route is '/' -->
@@ -41,12 +41,15 @@
         </div>
     </header>
     <!-- /Navigation -->
-    <main class="container">
+    <main class="container mx-auto">
+
         @yield('content')
-
-
         <!-- startpage -->
     </main>
+    <footer class="bg-main text-white w-screen mt-20 py-20 text-center">
+        <p class="text-lg uppercase font-black">Cocktailnator</p>
+        <p>Made by: <a class="text-gray-300 hover:text-yellow" href="https://github.com/danielmedb">Daniel Borgström</a> & <a class="text-gray-300 hover:text-yellow" href="https://github.com/evelynfredin">Evelyn Fredin</a>.</p>
+    </footer>
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
