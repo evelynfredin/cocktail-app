@@ -19,12 +19,18 @@ class UserController extends Controller
             'password' => 'nullable|confirmed|min:6',
         ]);
 
-        if ($request->password != null) {
+        if (request()->has('password')) {
             $password = Hash::make($request->password);
-            $request->request->add(['password' => $password]);
+            $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => $password
+            ]);
         } else {
-            $request->request->remove('password');
-            $request->request->remove('confirm_password');
+            $user->update([
+                'username' => $request->username,
+                'email' => $request->email,
+            ]);
         }
 
         return back()->with('status', 'Your profile has been updated.');
