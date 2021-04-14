@@ -9,7 +9,7 @@ Do you ever wish you were a _cocktail master_? Worry not, **Cocktailnator** has 
 -   Search by ingredients or beverages
 -   Save your favorite recipes
 -   Easily change username, email and password
--   If you regert it all, you can also delete your account, no hard feelings
+-   If you regret it all, you can also delete your account, no hard feelings
 
 ## Try this code:
 
