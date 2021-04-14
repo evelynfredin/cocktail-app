@@ -10,7 +10,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_create_user()
@@ -37,7 +36,7 @@ class UserTest extends TestCase
         $response = $this
             ->followingRedirects()
             ->actingAs($user)
-            ->post('/editprofile/ ' .$user->id. ' /', [
+            ->post('/editprofile/ ' . $user->id . ' /', [
                 'password' => 'passpass',
                 'password_confirmation' => 'passpass'
             ]);

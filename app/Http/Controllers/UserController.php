@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
     public function update(User $user, Request $request)
     {
         $this->authorize('edit', $user);
