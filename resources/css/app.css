@@ -10,6 +10,10 @@
     @apply text-main bg-yellow px-6 py-2 rounded-lg hover:bg-indigo-900 hover:text-yellow transition ease-out duration-200;
 }
 
+.btn-danger {
+    @apply bg-red text-white px-6 py-2 rounded-lg hover:bg-indigo-900 transition ease-out duration-200;
+}
+
 .btn-usr {
     @apply text-main bg-yellow rounded-lg hover:bg-indigo-900 hover:text-yellow transition ease-out duration-200;
 }

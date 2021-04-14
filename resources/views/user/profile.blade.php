@@ -12,7 +12,7 @@
         <div class="mr-0 lg:mr-5 px-10 md:px-0 mb-10 h-auto lg:w-2/3">
             <h2 class="font-bold text-2xl mb-5 uppercase">saved drinks</h2>
             @empty($drinks)
-            You dont have any saved favorite drinks.
+                You dont have any saved favorite drinks.
             @endempty
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="border lg:w-1/3 bg-gray-50 py-5 h-[510px]">
+        <div class="border lg:w-1/3 bg-gray-50 py-5 h-[560px]">
             <h3 class="font-xl font-bold text-center">Edit profile</h3>
             <form class="px-10" action="{{ route('update', $user) }}" method="post">
                 @csrf
@@ -113,10 +113,10 @@
                 <!-- /Edit password -->
                 <button class="btn" type="submit">Update</button>
             </form>
-            <form method="post" action="{{ route('userDelete', $user) }}">
+            <form class="px-10 mt-10 flex justify-center" method="post" action="{{ route('userDelete', $user) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn-danger">Delete Account</button>
             </form>
         </div>
     </section>

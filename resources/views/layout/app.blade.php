@@ -46,7 +46,7 @@
         @yield('content')
         <!-- startpage -->
     </main>
-    <footer class="bg-main text-white w-screen mt-20 py-20 text-center">
+    <footer class="bg-main text-white w-screen mt-20 py-10 text-center">
         <p class="text-lg uppercase font-black">Cocktailnator</p>
         <p>Made by: <a class="text-gray-300 hover:text-yellow" href="https://github.com/danielmedb">Daniel Borgström</a> & <a class="text-gray-300 hover:text-yellow" href="https://github.com/evelynfredin">Evelyn Fredin</a>.</p>
     </footer>

@@ -624,6 +624,10 @@ video {
 	margin-left: 2.5rem;
 	margin-right: 2.5rem;
 }
+.my-3 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+}
 .mt-20 {
 	margin-top: 5rem;
 }
@@ -692,6 +696,9 @@ video {
 }
 .h-\[510px\] {
 	height: 510px;
+}
+.h-\[560px\] {
+	height: 560px;
 }
 .w-full {
 	width: 100%;
@@ -824,6 +831,10 @@ video {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
 }
+.py-20 {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+}
 .px-0 {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -832,9 +843,9 @@ video {
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
 }
-.py-20 {
-	padding-top: 5rem;
-	padding-bottom: 5rem;
+.py-10 {
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
 }
 .text-center {
 	text-align: center;
@@ -959,6 +970,28 @@ video {
 	color: rgba(255, 225, 78, var(--tw-text-opacity));
 }
 
+.btn-danger {
+	border-radius: 0.5rem;
+	--tw-bg-opacity: 1;
+	background-color: rgba(236, 69, 79, var(--tw-bg-opacity));
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+	transition-duration: 200ms;
+	transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.btn-danger:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(49, 46, 129, var(--tw-bg-opacity));
+}
+
 .btn-usr {
 	border-radius: 0.5rem;
 	--tw-bg-opacity: 1;
@@ -1011,11 +1044,6 @@ a:hover {
 .hover\:text-red:hover {
 	--tw-text-opacity: 1;
 	color: rgba(236, 69, 79, var(--tw-text-opacity));
-}
-
-.hover\:text-white:hover {
-	--tw-text-opacity: 1;
-	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
 .hover\:text-yellow:hover {

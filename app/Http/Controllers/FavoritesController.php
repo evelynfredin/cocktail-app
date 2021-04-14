@@ -40,7 +40,7 @@ class FavoritesController extends Controller
             'drink_id' => $drink_id
         ]);
 
-        return redirect()->route('reSearch');
+        return redirect()->back();
     }
 
     public function destroy(Request $request, $drink_id)
