@@ -53,3 +53,16 @@ php artisan serve
 
 -   [Daniel Borgström](https://github.com/danielmedb)
 -   [Evelyn Fredin](https://github.com/evelynfredin)
+
+
+## Code review:
+
+- Liked the features, that the user can change username, email and password easily. It seems like a real application.
+- Nice way to add favorites to the user's profile, and could be much better without reloading the page.
+- Very clean and obvious code.
+- Good, that you have test for every feature.
+- All tests worked as expected.
+- the code is organized enough to be readable.
+- Very good way to divide the routes in two groups: 'accessable by guests' and 'accessable by authenticated users'.
+- Very nice design, but in 'index.plade.php' the card of 'Most popular and latest' , I think it could be better if you add padding-top.
+- The controllers are written in an advanced way. Well done!
