@@ -13,7 +13,7 @@ class LoginTest extends TestCase
     use RefreshDatabase;
 
 
-public function test_view_login_form()
+    public function test_view_login_form()
     {
         $response = $this->get('/login');
         $response->assertSuccessful();
@@ -47,7 +47,6 @@ public function test_view_login_form()
                 'password' => 'invalid',
             ]);
         $response->assertDontSeeText('Welcome');
-
     }
 
     public function test_logout_user()
@@ -64,5 +63,4 @@ public function test_view_login_form()
 
         $response->assertViewIs('auth.login');
     }
-
 }

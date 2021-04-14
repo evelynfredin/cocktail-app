@@ -11,7 +11,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FavoritesTest extends TestCase
 {
-
     use RefreshDatabase;
 
 
@@ -37,6 +36,5 @@ class FavoritesTest extends TestCase
             'user_id' => $user->id,
             'drink_id' => 11000
         ]);
-
     }
 }

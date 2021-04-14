@@ -14,7 +14,6 @@ class SearchTest extends TestCase
 
     public function test_search_for_drink_recipe()
     {
-
         $user = new User();
         $user->username = 'Robot Test';
         $user->email = 'Robot@test.se';
