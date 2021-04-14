@@ -12,7 +12,7 @@ class SearchTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_search_for_drink_recipe()
+    public function testSearchForDrinkRecipe()
     {
         $user = new User();
         $user->username = 'Robot Test';
@@ -21,16 +21,16 @@ class SearchTest extends TestCase
         $user->save();
 
         $response = $this
-        ->followingRedirects()
-        ->post('login', [
-            'email' => 'Robot@test.se',
-            'password' => 'password'
-        ]);
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'Robot@test.se',
+                'password' => 'password'
+            ]);
 
         $response = $this
-        ->post('/search', [
-            'search' => 'Vodka,gin',
-        ]);
+            ->post('/search', [
+                'search' => 'Vodka,gin',
+            ]);
 
         $response->assertSeeText('Army special');
     }

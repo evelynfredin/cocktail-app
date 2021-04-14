@@ -12,7 +12,7 @@ class UserTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_create_user()
+    public function testCreateUser()
     {
         $user = new User();
         $user->username = 'Robot Test';
@@ -21,11 +21,11 @@ class UserTest extends TestCase
         $user->save();
 
         $response = $this
-         ->assertDatabaseHas('users', ['email' => 'Robot@test.se']);
+            ->assertDatabaseHas('users', ['email' => 'Robot@test.se']);
     }
 
 
-    public function test_password_change()
+    public function testPasswordChange()
     {
         $user = new User();
         $user->username = 'Robot Test';

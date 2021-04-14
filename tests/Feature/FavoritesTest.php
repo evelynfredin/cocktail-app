@@ -14,7 +14,7 @@ class FavoritesTest extends TestCase
     use RefreshDatabase;
 
 
-    public function test_add_and_remove_recipe()
+    public function testAddAndRemoveRecipe()
     {
         $user = new User();
         $user->username = 'Robot Test';
@@ -23,14 +23,14 @@ class FavoritesTest extends TestCase
         $user->save();
 
         $response = $this
-        ->followingRedirects()
-        ->post('login', [
-            'email' => 'Robot@test.se',
-            'password' => 'password'
-        ]);
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'Robot@test.se',
+                'password' => 'password'
+            ]);
 
         $response = $this
-        ->post('/addfavorite/11000');
+            ->post('/addfavorite/11000');
 
         $this->assertDatabaseHas('user_drink', [
             'user_id' => $user->id,

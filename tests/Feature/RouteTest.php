@@ -13,7 +13,7 @@ class RouteTest extends TestCase
     use RefreshDatabase;
 
 
-    public function test_all_routes()
+    public function testAllRoutes()
     {
         $urls = [
             '/',
@@ -43,11 +43,11 @@ class RouteTest extends TestCase
         $user->save();
 
         $response = $this
-       ->followingRedirects()
-       ->post('login', [
-           'email' => 'Robot@test.se',
-           'password' => 'password'
-       ]);
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'Robot@test.se',
+                'password' => 'password'
+            ]);
 
         foreach ($urls_logged_in as $url) {
             $response = $this->actingAs($user)->get($url);

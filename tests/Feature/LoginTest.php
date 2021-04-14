@@ -13,14 +13,14 @@ class LoginTest extends TestCase
     use RefreshDatabase;
 
 
-    public function test_view_login_form()
+    public function testViewLoginForm()
     {
         $response = $this->get('/login');
         $response->assertSuccessful();
         $response->assertSeeText('Welcome back!');
     }
 
-    public function test_login_user()
+    public function testLoginUser()
     {
         $user = new User();
         $user->username = 'Robot Test';
@@ -29,16 +29,16 @@ class LoginTest extends TestCase
         $user->save();
 
         $response = $this
-        ->followingRedirects()
-        ->post('login', [
-            'email' => 'Robot@test.se',
-            'password' => 'password'
-        ]);
+            ->followingRedirects()
+            ->post('login', [
+                'email' => 'Robot@test.se',
+                'password' => 'password'
+            ]);
 
         $response->assertStatus(200);
     }
 
-    public function test_invalid_login_details()
+    public function testInvalidLoginDetails()
     {
         $response = $this
             ->followingRedirects()
@@ -49,7 +49,7 @@ class LoginTest extends TestCase
         $response->assertDontSeeText('Welcome');
     }
 
-    public function test_logout_user()
+    public function testLogoutUser()
     {
         $user = new User();
         $user->username = 'Robot Test';
@@ -58,8 +58,8 @@ class LoginTest extends TestCase
         $user->save();
 
         $response = $this
-        ->followingRedirects()
-        ->get('/logout');
+            ->followingRedirects()
+            ->get('/logout');
 
         $response->assertViewIs('auth.login');
     }
