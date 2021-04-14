@@ -5,7 +5,7 @@
         @csrf
         <div class="flex justify-center md:w-[574px] h-[40px] md:h-[50px] md:mx-auto">
             <input class="px-5 w-full rounded-l-lg border border-main bg-gray-50" type="search" name="search" id="search" placeholder="Vodka, gin">
-            <button class="rounded-r-lg bg-main px-4 text-yellow hover:bg-indigo-900" type="submit">Search</button>
+            <button class="rounded-r-lg bg-main px-4 text-yellow hover:bg-indigo-900" name="submit" type="submit">Search</button>
         </div>
     </form>
 </div>
