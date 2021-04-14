@@ -112,7 +112,11 @@
                 </div>
                 <!-- /Edit password -->
                 <button class="btn" type="submit">Update</button>
-
+            </form>
+            <form method="post" action="{{ route('userDelete', $user) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
         </div>
     </section>
