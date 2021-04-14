@@ -31,6 +31,7 @@ function search($data)
                 $drinkKey++;
             }
         }
+        session(['searchText' => $data]);
     }
     return $data;
 }

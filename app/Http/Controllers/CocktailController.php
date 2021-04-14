@@ -12,19 +12,15 @@ class CocktailController extends Controller
 {
     public function reSearch()
     {
-        $data = cocktailApiCall('/filter.php?i=' . session('searchText') . '');
         $favorites = Favorites::where('user_id', auth()->id())->get();
-        $data = search($data);
-
+        $data = session()->get('searchText');
         return view('index', compact('data', 'favorites'));
     }
 
     public function search(request $Request)
     {
         $search = str_replace(' ', '', $Request->search);
-        session(['searchText' => $search]);
         $data = cocktailApiCall('/filter.php?i=' . $search . '');
-
         $data = search($data);
 
         $favorites = Favorites::where('user_id', auth()->id())->get();
